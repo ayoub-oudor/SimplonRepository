@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+  <display-name>BRIEF_NUMBER_10</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+<!--   <servlet> -->
+<!--     <description></description> -->
+<!--     <display-name>Admin_Servlet_login</display-name> -->
+<!--     <servlet-name>Admin_Servlet_login</servlet-name> -->
+<!--     <servlet-class>servlets.Admin_Servlet_login</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>Admin_Servlet_login</servlet-name> -->
+<!--     <url-pattern>/Admin_Servlet_login</url-pattern> -->
+<!--   </servlet-mapping> -->
+<!--   <servlet> -->
+<!--     <description></description> -->
+<!--     <display-name>Employee_Servlet_List</display-name> -->
+<!--     <servlet-name>Employee_Servlet_List</servlet-name> -->
+<!--     <servlet-class>servlets.Employee_Servlet_List</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>Employee_Servlet_List</servlet-name> -->
+<!--     <url-pattern>/Employee_Servlet_List</url-pattern> -->
+<!--   </servlet-mapping> -->
+<!--   <servlet> -->
+<!--     <description></description> -->
+<!--     <display-name>test</display-name> -->
+<!--     <servlet-name>test</servlet-name> -->
+<!--     <servlet-class>servlets.Test</servlet-class> -->
+<!--   </servlet> -->
+  <!-- <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping> -->
+</web-app>
