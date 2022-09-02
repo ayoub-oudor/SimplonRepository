@@ -12,6 +12,7 @@ import stcManager.serviceInterface.interfaceDao;
 @Service
 @Transactional
 public class ActiviteService implements interfaceDao<Activite> {
+	
 	@Autowired  
 	ActiviteRepository activiteRepository; 
 	

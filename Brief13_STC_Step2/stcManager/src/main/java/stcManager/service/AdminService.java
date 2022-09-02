@@ -15,10 +15,10 @@ public class AdminService implements interfaceDao<Admin>{
 	
 	@Override
 	public void save(Admin admin) {
-		adminRepository.save(admin);
+		adminRepository.save(admin); 
 	}
-
-	@Override
+ 
+	@Override 
 	public List<Admin> getAll() {
 		return adminRepository.findAll();
 	}
