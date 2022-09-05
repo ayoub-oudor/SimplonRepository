@@ -108,7 +108,7 @@ public class Activite {
 		this.titreActivite = titreActivite;
 	}
 
-	public String getDescriptif() {
+	public String getDescriptif() { 
 		return descriptif;
 	}
 
