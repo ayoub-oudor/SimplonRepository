@@ -1,13 +1,13 @@
-package SimplonSky.SimplonSky;
+package simplonSky;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimplonSkyApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SimplonSkyApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
