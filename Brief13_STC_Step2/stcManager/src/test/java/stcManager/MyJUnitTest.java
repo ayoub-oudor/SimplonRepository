@@ -1,14 +1,11 @@
 package stcManager;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import stcManager.entity.Admin;
+import stcManager.security.AppUser;
+import stcManager.security.Role;
+import stcManager.security.Users;
 import stcManager.service.ActiviteService;
 import stcManager.service.AdminService;
 import stcManager.service.ExerciceService;
@@ -38,5 +35,10 @@ class MyJUnitTest {
 //		adminS.save(admin);
 //		Assertions.assertThat(admin.getIdadmin()).isGreaterThan(0);
 	}
-
+	
+	@Test
+	public void addUSer() {
+		Users user = new Users();
+		user.setRole(Role.ADMIN);
+	}
 }

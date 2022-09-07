@@ -16,18 +16,20 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class AppRole {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long roleId;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
-    
-    @Column(nullable=true, length=20)
-    private String roleName; 
+	@Column(nullable = true, length = 20)
+	private String roleName;
 
-
-    @ManyToMany (mappedBy = "appRoles")
-    private List<AppUser> appUsers= new ArrayList<> ();
+	@ManyToMany(mappedBy = "appRoles")
+	private List<AppUser> appUsers = new ArrayList<>();
 
 }
