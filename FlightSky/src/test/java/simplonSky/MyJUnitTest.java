@@ -18,7 +18,7 @@ class MyJUnitTest {
 	@Autowired
 	AdminService adminService;
 	
-	@Test
+	@Test 
 	public void saveadminTest()  { 
 
 		Admin admin = new Admin();

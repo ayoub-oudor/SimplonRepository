@@ -1,36 +1,27 @@
-package simplonSky.entity;
+package simplonSky.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
-import simplonSky.configuration.CurrentUserDetails;
+import simplonSky.entity.Roles;
 
-@Entity 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Data
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name = "utilisateur")
-public  class User {
+public  class UserDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
@@ -64,12 +55,14 @@ public  class User {
 	@Enumerated(EnumType.STRING)
 	private Roles roles;
 	
-	public void setPassword(String password) {
-		this.password = new BCryptPasswordEncoder().encode(password);
-	}
+//mohamad idlmhor	
+
+//	public void setPassword(String password) {
+//		this.password = new BCryptPasswordEncoder().encode(password);
+//	}
 	
-	public UserDetails toCurrentUserDetails() {
-	    return CurrentUserDetails.create(this);
-	}
+//	public UserDetails toCurrentUserDetails() {
+//	    return CurrentUserDetails.create(this);
+//	}
 }
  

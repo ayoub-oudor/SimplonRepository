@@ -35,7 +35,7 @@ public class ResponsableBillets extends User{
 	@JoinColumn(name = "id_admin")
 	private Admin admin;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_responsableBillet",referencedColumnName ="id")
-	private List<Billet> billet = new ArrayList <Billet> (); 
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_responsableBillet",referencedColumnName ="id")
+//	private List<Billet> billet = new ArrayList <Billet> ();
 }

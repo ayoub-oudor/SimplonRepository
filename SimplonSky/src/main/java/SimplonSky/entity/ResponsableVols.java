@@ -24,8 +24,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@Table(name = "responsable_billet")
-public class ResponsableBillets extends User{
+@Table(name = "responsable_vol")
+public class ResponsableVols extends User{
 	
 	@NonNull
 	@Column(name = "salaire")
@@ -35,7 +35,11 @@ public class ResponsableBillets extends User{
 	@JoinColumn(name = "id_admin")
 	private Admin admin;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_responsableBillet",referencedColumnName ="id")
-	private List<Billet> billet = new ArrayList <Billet> (); 
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_responsableVol",referencedColumnName ="id")
+//	private List<Avion> avion = new ArrayList <Avion> ();
+//	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_responsableVol",referencedColumnName ="id")
+//	private List<Vol> vol = new ArrayList <Vol> ();
 }

@@ -13,15 +13,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
-import simplonSky.configuration.CurrentUserDetails;
 
 @Entity 
 @NoArgsConstructor
@@ -64,12 +60,12 @@ public  class User {
 	@Enumerated(EnumType.STRING)
 	private Roles roles;
 	
-	public void setPassword(String password) {
-		this.password = new BCryptPasswordEncoder().encode(password);
-	}
+//	public void setPassword(String password) {
+//		this.password = new BCryptPasswordEncoder().encode(password);
+//	}
 	
-	public UserDetails toCurrentUserDetails() {
-	    return CurrentUserDetails.create(this);
-	}
+//	public UserDetails toCurrentUserDetails() {
+//	    return CurrentUserDetails.create(this);
+//	}
 }
  
