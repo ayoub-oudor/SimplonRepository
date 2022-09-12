@@ -26,7 +26,7 @@ public class AdminController {
 	public Admin AddAdmin(@RequestBody Admin admin) {
 		adminService.save(admin);
 		return admin;
-	}
+	} 
     @DeleteMapping("/STCManager/delete/{roll}")
     public long deleteadmin(@PathVariable long roll) {
         adminService.delete(roll);

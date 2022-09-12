@@ -10,7 +10,7 @@ import stcManager.serviceInterface.interfaceDao;
 @Service
 @Transactional
 public class AdminService implements interfaceDao<Admin>{
-	@Autowired  
+	@Autowired   
 	AdminRepository adminRepository; 
 	
 	@Override
@@ -18,7 +18,7 @@ public class AdminService implements interfaceDao<Admin>{
 		adminRepository.save(admin); 
 	}
  
-	@Override 
+	@Override  
 	public List<Admin> getAll() {
 		return adminRepository.findAll();
 	}

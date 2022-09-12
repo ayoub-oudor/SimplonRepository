@@ -73,5 +73,5 @@ public class Responsable {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="fk_idresponsable",referencedColumnName ="idresponsable")
 	private List<Activite> activite = new ArrayList <Activite> ();
-
+ 
 }

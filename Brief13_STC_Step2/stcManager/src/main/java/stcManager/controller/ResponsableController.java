@@ -24,11 +24,11 @@ public class ResponsableController {
     private ResponsableService responsableService;
 	
     
-	@PostMapping("/STCManager/save")
+	@PostMapping("/STCManager/save") 
 	public Responsable AddResponsable(@RequestBody Responsable responsable) {
 		responsableService.save(responsable);
 		return responsable;
-	}
+	} 
     @DeleteMapping("/STCManager/delete/{roll}")
     public long deleteResponsable(@PathVariable long roll) {
         responsableService.delete(roll);
