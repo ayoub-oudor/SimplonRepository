@@ -1,9 +1,10 @@
 package simplonSky.controller;
 
-import java.util.List;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,27 +27,29 @@ public class UserController {
     private UserService UserService;
     
 	@PostMapping("/registerNewUser")
-	public User AddUser(@RequestBody User User) {
+	public ResponseEntity<String> AddUser(@Valid @RequestBody User User) {
 		UserService.save(User);
-		return User;
+		return ResponseEntity.ok("User is valid");
 	} 
     @DeleteMapping("/deleteNewUser/{roll}")
-    public long deleteUser(@PathVariable long roll) {
+    public ResponseEntity<String> deleteUser(@PathVariable long roll) {
         UserService.delete(roll);
-        return roll;
+        return ResponseEntity.ok("User is deleted");
     }
 	@PostMapping("/updateNewUser/{roll}")
-	public User updateUser(@RequestBody User User,@PathVariable long roll) {
+	public ResponseEntity<String> updateUser(@RequestBody User User,@PathVariable long roll) {
 		UserService.update(User, roll);
-		return User;
+		return ResponseEntity.ok("User is updated");
 	}
-    @RequestMapping("/listUsers")
-    public List<User> List() {
-    	return UserService.getAll();
+	@GetMapping("/listUsers")
+    public ResponseEntity<User> List() {
+    	User user = (User) UserService.getAll();
+    	return ResponseEntity.ok(user);
     }
-    @RequestMapping("/listUser/{roll}")
-    public User getUser(@PathVariable long roll) {
-    	return UserService.getById(roll);     
+    @GetMapping("/listUser/{roll}")
+    public ResponseEntity<User> getUser(@PathVariable long roll) {
+    	 User user = UserService.getById(roll);   
+    	 return ResponseEntity.ok(user);
     } 
     @GetMapping({"/forAdmin"})
     public String forAdmin() {

@@ -1,4 +1,4 @@
-package simplonSky.entity;
+package SoussHealthOnlineStore.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -27,20 +26,10 @@ import lombok.ToString;
 @Data
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "utilisateur")
-public  class User {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
-	
-	@NonNull
-	@Size(min = 3, max = 50 ,message="MIN 3 MAX 50")
-	@Column(name = "nom")
-	private String nom;
-	
-	@NonNull
-	@Size(min = 3, max = 50, message="MIN 3 MAX 50")
-	@Column(name = "prenom")
-	private String prenom;
 	
 	@NonNull
 	@Size(min = 3, max = 50, message="MIN 3 MAX 50")
@@ -50,24 +39,10 @@ public  class User {
 	
 	@NonNull
 	@Size(min = 3, max = 50, message="MIN 3 MAX 50")
-	@Column(name = "telephone")
-	private String telephone;
-	
-	@NotEmpty
-	@Size(min = 3, max = 50, message="MIN 3 MAX 50")
 	@Column(name = "password")
 	private String password;
 	
 	@Column(name = "role", nullable = false)
 	@Enumerated(EnumType.STRING)
-	private Roles roles;
-	
-//	public void setPassword(String password) {
-//		this.password = new BCryptPasswordEncoder().encode(password);
-//	}
-	
-//	public UserDetails toCurrentUserDetails() {
-//	    return CurrentUserDetails.create(this);
-//	}
+	private Role role;
 }
- 

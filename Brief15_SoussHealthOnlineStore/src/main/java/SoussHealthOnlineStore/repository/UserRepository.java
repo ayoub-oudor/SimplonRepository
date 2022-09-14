@@ -1,14 +1,12 @@
-package simplonSky.repository;
+package SoussHealthOnlineStore.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import simplonSky.entity.User;
+import SoussHealthOnlineStore.entity.User;
 
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{ 
 	User findByEmail(String username);
-//	@Query("select u from User u where u.email like '%@gmail.com'")
-//	List<User> findUsersWithGmailAddress();
 }
