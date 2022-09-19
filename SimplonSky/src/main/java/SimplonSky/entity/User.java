@@ -1,14 +1,19 @@
 package simplonSky.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -33,7 +38,7 @@ public  class User {
 	private Long id;
 	
 	@NonNull
-	@Size(min = 3, max = 50 ,message="MIN 3 MAX 50")
+	@Size(min = 3, max = 50 , message="MIN 3 MAX 50")
 	@Column(name = "nom")
 	private String nom;
 	
@@ -58,9 +63,11 @@ public  class User {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "role", nullable = false)
-	@Enumerated(EnumType.STRING)
-	private Roles roles;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
+	private Set<Role> roles = new HashSet<>();
+	
+
 	
 //	public void setPassword(String password) {
 //		this.password = new BCryptPasswordEncoder().encode(password);

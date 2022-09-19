@@ -1,13 +1,7 @@
 package simplonSky.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -35,14 +29,14 @@ public class Admin extends User{
 	@Column(name = "cin")
 	private String cin;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_admin",referencedColumnName ="id")
-	private List<ResponsableBillets> responsableBillets = new ArrayList <ResponsableBillets> ();
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_admin",referencedColumnName ="id")
-	private List<ResponsableVols> responsableVols = new ArrayList <ResponsableVols> ();
-	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_admin",referencedColumnName ="id")
+//	private List<ResponsableBillets> responsableBillets = new ArrayList <ResponsableBillets> ();
+//	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_admin",referencedColumnName ="id")
+//	private List<ResponsableVols> responsableVols = new ArrayList <ResponsableVols> ();
+//	
 //	@OneToMany(cascade = CascadeType.ALL)
 //	@JoinColumn(name="id_admin",referencedColumnName ="id")
 //	private List<Vol> vol = new ArrayList <Vol> ();

@@ -23,7 +23,7 @@ public class CategorieService implements InterfaceService<Categorie> {
 	
 	@Override
 	public void save(Categorie Categorie) {
-		CategorieRepository.save(Categorie); 
+		CategorieRepository.save(Categorie);  
 	}
   
 	@Override  
@@ -39,7 +39,10 @@ public class CategorieService implements InterfaceService<Categorie> {
 
 	@Override
 	public void update(Categorie Categorie, long id) {
-		CategorieRepository.save(Categorie);
+		Categorie Categorie1 = CategorieRepository.findById(id).get();
+		Categorie1.setType(Categorie.getType());
+		Categorie1.setAdmin(Categorie.getAdmin());
+		CategorieRepository.save(Categorie1);
 	}
 
 	@Override

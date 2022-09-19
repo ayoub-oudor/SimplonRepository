@@ -38,8 +38,12 @@ public class CommandeService implements InterfaceService<Commande> {
 	}
 
 	@Override
-	public void update(Commande Commande, long id) {
-		CommandeRepository.save(Commande);
+	public void update(Commande commande, long id) {
+		Commande commande1 = CommandeRepository.findById(id).get();
+		commande1.setDateCommande(commande.getDateCommande());
+		commande1.setPrix_total(commande.getPrix_total());
+		commande1.setQuantite(commande.getQuantite());
+		CommandeRepository.save(commande1);
 	}
 
 	@Override

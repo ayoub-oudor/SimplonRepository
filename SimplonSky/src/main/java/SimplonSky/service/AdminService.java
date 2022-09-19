@@ -5,7 +5,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import simplonSky.entity.Admin;
@@ -36,18 +35,17 @@ public class AdminService implements InterfaceService<Admin> {
 	}
 
 	@Override
-	public void update(Admin Admin, long id) {
+	public void update(Admin admin, long id) {
 		
-		Admin admin = AdminRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Admin"));
-		admin.setCin(Admin.getCin());
-		admin.setEmail(Admin.getEmail());
-		admin.setNom(Admin.getNom());
-		admin.setPrenom(Admin.getPrenom());
-		admin.setPassword(Admin.getPassword());
-		admin.setTelephone(Admin.getTelephone());
-		admin.setRoles(Admin.getRoles());
-		AdminRepository.save(Admin);
-	
+		Admin admin1 = AdminRepository.findById(id).get();
+		admin1.setCin(admin.getCin());
+		admin1.setEmail(admin.getEmail());
+		admin1.setNom(admin.getNom());
+		admin1.setPrenom(admin.getPrenom());
+		admin1.setPassword(admin.getPassword());
+		admin1.setTelephone(admin.getTelephone());
+		admin1.setRoles(admin.getRoles());
+		AdminRepository.save(admin1);
 	}
 
 	@Override

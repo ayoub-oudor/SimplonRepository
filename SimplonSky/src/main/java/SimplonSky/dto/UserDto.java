@@ -1,12 +1,10 @@
 package simplonSky.dto;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import simplonSky.entity.Roles;
+import simplonSky.entity.ERole;
 
 
 @NoArgsConstructor
@@ -26,12 +24,9 @@ public class UserDto {
 
 	private String password;
 	
-	private Roles roles;
+	private ERole eRole;
 	
 
-	public void setPassword(String password) {
-		this.password = new BCryptPasswordEncoder().encode(password);
-	}
 	
 
 }

@@ -48,7 +48,7 @@ public class Avion {
 	@JoinColumn(name = "id_responsableVol")
 	private ResponsableVols responsableVols;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="numAvion",referencedColumnName ="numAvion")
-	private List<Vol> vol = new ArrayList <Vol> ();
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="numAvion",referencedColumnName ="numAvion")
+//	private List<Vol> vol = new ArrayList <Vol> ();
 }

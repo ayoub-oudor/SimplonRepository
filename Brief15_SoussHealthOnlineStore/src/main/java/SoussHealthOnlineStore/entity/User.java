@@ -1,14 +1,19 @@
 package SoussHealthOnlineStore.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
@@ -42,7 +47,17 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "role", nullable = false)
-	@Enumerated(EnumType.STRING)
-	private Role role;
+//	@Column(name = "role", nullable = false)
+//	@Enumerated(EnumType.STRING)
+//	private ERole eRole;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "users_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
+	private Set<Role> roles = new HashSet<>();
+	
+	public User(String email, String password) {
+
+		this.email = email;
+		this.password = password;
+	}
 }

@@ -1,6 +1,6 @@
 package simplonSky.entity;
 
-public enum Roles {
+public enum ERole {
 	
 	PASSENGER, ADMIN, RESPONSABLEVOLS, RESPONSABLEBILLETS
 

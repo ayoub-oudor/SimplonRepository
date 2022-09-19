@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import simplonSky.entity.Admin;
-import simplonSky.entity.Roles;
 import simplonSky.service.AdminService;
 
 
@@ -42,14 +41,14 @@ class MyJUnitTest {
 		
 //		adminService.save(admin);
 		/**********update**********/
-		admin.setEmail("ayoub@gmail.com");
-		admin.setNom("ayoub");
-		admin.setPrenom("oudor");
-		admin.setTelephone("0651407776");
-		admin.setRoles(Roles.ADMIN);
-		admin.setCin("JM1234");
-		admin.setPassword("123456789");	
-		adminService.update(admin, 1);
+//		admin.setEmail("ayoub@gmail.com");
+//		admin.setNom("ayoub");
+//		admin.setPrenom("oudor");
+//		admin.setTelephone("0651407776");
+//		admin.setRoles(ERole.ADMIN);
+//		admin.setCin("JM1234");
+//		admin.setPassword("123456789");	
+//		adminService.update(admin, 1);
 		/**********get by id**********/
 //		adminService.getById(1);
 		/**********list**********/

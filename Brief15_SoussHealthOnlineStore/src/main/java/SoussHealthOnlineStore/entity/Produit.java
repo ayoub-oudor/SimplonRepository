@@ -1,8 +1,6 @@
 package SoussHealthOnlineStore.entity;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +28,7 @@ import lombok.ToString;
 @ToString
 @Data
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "numProduit")
 @Table(name = "produit")
 public class Produit {
 	@Id
@@ -60,9 +61,9 @@ public class Produit {
 	@JoinColumn(name = "numCategorie")
 	private Categorie categorie;
 	
-    @OneToMany(mappedBy = "client")
-    private Set<Commande> commande = new HashSet<>();
-	
+//    @OneToMany(mappedBy = "client")
+//    private Set<Commande> commande = new HashSet<>();
+
 //	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 //	@JoinTable(name = "commande",
 //		joinColumns = @JoinColumn(name = "numProduit"),

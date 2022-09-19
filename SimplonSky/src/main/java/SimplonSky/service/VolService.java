@@ -35,8 +35,12 @@ public class VolService implements InterfaceService<Vol> {
 	}
 
 	@Override
-	public void update(Vol Vol, long id) {
-		VolRepository.save(Vol);
+	public void update(Vol vol, long id) {
+		Vol Vol1 = VolRepository.findById(id).get();
+		Vol1.setDateDebut(vol.getDateDebut());
+		Vol1.setDateFin(vol.getDateFin());
+		Vol1.setDestination(vol.getDestination());
+		VolRepository.save(Vol1);
 	}
 
 	@Override

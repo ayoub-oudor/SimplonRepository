@@ -43,7 +43,7 @@ public class AdminService implements InterfaceService<Admin> {
 		  admin1.setEmail(admin.getEmail());
 		  admin1.setFullName(admin.getFullName());
 		  admin1.setPassword(admin.getPassword());
-		  admin1.setRole(admin.getRole());
+		  admin1.setRoles(admin.getRoles());
 		  AdminRepository.save(admin1);	
 		  
     }

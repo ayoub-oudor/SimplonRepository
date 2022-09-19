@@ -69,7 +69,7 @@ public class Vol {
 	@JoinColumn(name = "numAvion")
 	private Avion avion;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="numVol",referencedColumnName ="numVol")
-	private List<Billet> billet = new ArrayList <Billet> ();
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="numVol",referencedColumnName ="numVol")
+//	private List<Billet> billet = new ArrayList <Billet> ();
 }

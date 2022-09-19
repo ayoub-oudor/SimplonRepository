@@ -1,14 +1,7 @@
 package simplonSky.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,9 +24,9 @@ public class ResponsableVols extends User{
 	@Column(name = "salaire")
 	private Double salaire;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_admin")
-	private Admin admin;
+//	@ManyToOne
+//	@JoinColumn(name = "id_admin")
+//	private Admin admin;
 	
 //	@OneToMany(cascade = CascadeType.ALL)
 //	@JoinColumn(name="id_responsableVol",referencedColumnName ="id")

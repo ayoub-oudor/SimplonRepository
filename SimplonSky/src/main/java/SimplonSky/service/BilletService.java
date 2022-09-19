@@ -35,8 +35,13 @@ public class BilletService implements InterfaceService<Billet> {
 	}
 
 	@Override
-	public void update(Billet Billet, long id) {
-		BilletRepository.save(Billet);
+	public void update(Billet billet, long id) {
+		Billet billet1 = BilletRepository.findById(id).get();
+		billet1.setDateReservation(billet.getDateReservation());
+		billet1.setEtat(billet.getEtat());
+		billet1.setNumPlace(billet.getNumPlace());
+		billet1.setPrix(billet.getPrix());
+		BilletRepository.save(billet1);
 	}
 
 	@Override

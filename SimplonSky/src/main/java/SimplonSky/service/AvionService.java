@@ -35,8 +35,11 @@ public class AvionService implements InterfaceService<Avion> {
 	}
 
 	@Override
-	public void update(Avion Avion, long id) {
-		AvionRepository.save(Avion);
+	public void update(Avion avion, long id) {
+		Avion avion1 = AvionRepository.findById(id).get();
+		avion1.setCapacite(avion.getCapacite());
+		avion1.setModele(avion.getModele());
+		AvionRepository.save(avion1);
 	}
 
 	@Override

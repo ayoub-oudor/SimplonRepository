@@ -1,13 +1,7 @@
 package SoussHealthOnlineStore.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -35,13 +29,18 @@ public class Admin extends User{
 	@Size(min = 3, max = 50 ,message="MIN 3 MAX 50")
 	@Column(name = "fullname")
 	private String fullName;
+
+	public Admin(String fullname, String email, String password) {
+		super(email, password);
+		this.fullName=fullname;
+	}	
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_admin",referencedColumnName ="id")
-	private List<Categorie> categorie = new ArrayList <Categorie> ();
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_admin",referencedColumnName ="id")
-	private List<Produit> produit = new ArrayList <Produit> ();
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_admin",referencedColumnName ="id")
+//	private List<Categorie> categorie = new ArrayList <Categorie> ();
+//	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name="id_admin",referencedColumnName ="id")
+//	private List<Produit> produit = new ArrayList <Produit> ();
 
 }
