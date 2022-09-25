@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="card">  
+        <div class="card-header">Reservation billet</div>
+        <div class="card-body">
+            <table class = "table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>date de Reservation</th>
+                        <th>etat</th>
+                        <th>nombre des places</th>
+                        <th>prix</th>
+                        <th>passenger</th>
+                        <th>vol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let data of List">
+                        <td>{{data.numBillet}}</td>
+                        <td>{{data.date_reservation}}</td>
+                        <td>{{data.capacite}}</td>
+                        <td>
+                        <!-- <td *ngIf="this.authService.hasRole('ADMIN')"> -->
+                            <button  (click)="delete(data.numAvion)" class = "btn btn-danger" style="margin-left: 10px"><i class="bi bi-trash"></i> Delete</button>
+                        </td>
+                        <td>
+                        <!-- <td *ngIf="this.authService.hasRole('ADMIN')"> -->
+                            <a  [routerLink]='["/admin/update-avion", data.numAvion]' class = "btn btn-info "><i class="bi bi-pencil-fill"></i> Update</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
