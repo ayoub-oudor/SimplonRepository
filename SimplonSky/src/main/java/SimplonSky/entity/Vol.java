@@ -1,10 +1,5 @@
 package simplonSky.entity;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,10 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -35,13 +27,15 @@ public class Vol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long numVol;
 	
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@Size(max = 50)
 	@Column(name = "dateDebut")
-	private Date dateDebut;
+	private String dateDebut;
 	
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@Size(max = 50)
 	@Column(name = "dateFin")
-	private Date dateFin;
+	private String dateFin;
 	
 	@NonNull
 	@Column(name = "duree")

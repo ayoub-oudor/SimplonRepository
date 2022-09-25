@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,8 @@ import simplonSky.service.VolService;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/Vol") 
+@RequestMapping(value = "/api") 
+@CrossOrigin(origins = "*")
 public class VolController { 
 	 
     @Autowired
@@ -28,36 +30,36 @@ public class VolController {
     
     
     //REGISTER
-	@PostMapping("/registerNewVol")
+	@PostMapping("/Vol")
 	public ResponseEntity<String> AddVol(@Valid @RequestBody Vol Vol) {
 		VolService.save(Vol);
 		return ResponseEntity.ok("Vol is valid");
 	}
 
 	//DELETE
-    @DeleteMapping("/deleteNewVol/{roll}")
-    public ResponseEntity<String> deleteVol(@PathVariable long roll) {
-        VolService.delete(roll);
+    @DeleteMapping("/Vol/{id}")
+    public ResponseEntity<String> deleteVol(@PathVariable long id) {
+        VolService.delete(id);
         return ResponseEntity.ok("Vol is deleted");
     }
 
     //UPDATE
-	@PostMapping("/updateNewVol/{roll}")
-	public ResponseEntity<String> updateVol(@RequestBody Vol Vol,@PathVariable long roll) {
-		VolService.update(Vol, roll);
+	@PostMapping("/Vol/{id}")
+	public ResponseEntity<String> updateVol(@RequestBody Vol Vol,@PathVariable long id) {
+		VolService.update(Vol, id);
 		return ResponseEntity.ok("Vol is updated");
 	}
 
 	//SHOW LIST
-	@GetMapping("/listVol")
+	@GetMapping("/Vol")
     public List<Vol> List1() {
 		return VolService.getAll();
     }
 
 	//SHOW LISTS
-    @GetMapping("/listResponsableBillet/{roll}")
-    public ResponseEntity<Vol> getResponsableBillet(@PathVariable long roll) {
-    	Vol Vol = VolService.getById(roll);   
+    @GetMapping("/Vol/{id}")
+    public ResponseEntity<Vol> getResponsableBillet(@PathVariable long id) {
+    	Vol Vol = VolService.getById(id);   
     	 return ResponseEntity.ok(Vol);
     }
 

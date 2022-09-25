@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,8 @@ import simplonSky.service.AvionService;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/Avion") 
+@RequestMapping(value = "/api")
+@CrossOrigin(origins = "*")
 public class AvionController { 
 	 
     @Autowired
@@ -28,36 +30,36 @@ public class AvionController {
     
     
     //REGISTER
-	@PostMapping("/registerNewAvion")
+	@PostMapping("/Avion")
 	public ResponseEntity<String> AddAvion(@Valid @RequestBody Avion Avion) {
 		AvionService.save(Avion);
 		return ResponseEntity.ok("Avion is valid");
 	}
 
 	//DELETE
-    @DeleteMapping("/deleteNewAvion/{roll}")
-    public ResponseEntity<String> deleteAvion(@PathVariable long roll) {
-        AvionService.delete(roll);
+    @DeleteMapping("/Avion/{id}")
+    public ResponseEntity<String> deleteAvion(@PathVariable long id) {
+        AvionService.delete(id);
         return ResponseEntity.ok("Avion is deleted");
     }
 
     //UPDATE
-	@PostMapping("/updateNewAvion/{roll}")
-	public ResponseEntity<String> updateAvion(@RequestBody Avion Avion,@PathVariable long roll) {
-		AvionService.update(Avion, roll);
+	@PostMapping("/Avion/{id}")
+	public ResponseEntity<String> updateAvion(@PathVariable long id, @RequestBody Avion Avion) {
+		AvionService.update(Avion, id);
 		return ResponseEntity.ok("Avion is updated");
 	}
 
 	//SHOW LIST
-	@GetMapping("/listAvion")
+	@GetMapping("/Avion")
     public List<Avion> List1() {
 		return AvionService.getAll();
     }
 
 	//SHOW LISTS
-    @GetMapping("/listResponsableBillet/{roll}")
-    public ResponseEntity<Avion> getResponsableBillet(@PathVariable long roll) {
-    	Avion Avion = AvionService.getById(roll);   
+    @GetMapping("/Avion/{id}")
+    public ResponseEntity<Avion> getResponsableBillet(@PathVariable long id) {
+    	Avion Avion = AvionService.getById(id);   
     	 return ResponseEntity.ok(Avion);
     }
 
