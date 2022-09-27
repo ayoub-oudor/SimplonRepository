@@ -27,7 +27,7 @@ import simplonSky.service.ResponsableVolsService;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/User") 
+@RequestMapping(value = "/api") 
 @CrossOrigin(origins = "*")
 public class UserController { 
 	 
@@ -44,104 +44,104 @@ public class UserController {
     private AdminService adminService;
     
     //REGISTER
-	@PostMapping("/registerNewAdmin")
+	@PostMapping("/Admin")
 	public ResponseEntity<String> AddAdmin(@Valid @RequestBody Admin admin) {
 		adminService.save(admin);
 		return ResponseEntity.ok("Admin is valid");
 	}
-	@PostMapping("/registerNewResponsableBillets")
+	@PostMapping("/ResponsableBillets")
 	public ResponseEntity<String> AddResponsableBillets(@Valid @RequestBody ResponsableBillets responsableBillets) {
 		responsableBilletsService.save(responsableBillets);
 		return ResponseEntity.ok("ResponsableBillets is valid");
 	}
-	@PostMapping("/registerNewResponsableVols")
+	@PostMapping("/ResponsableVols")
 	public ResponseEntity<String> AddResponsableVols(@Valid @RequestBody ResponsableVols responsableVols) {
 		responsableVolsService.save(responsableVols);
 		return ResponseEntity.ok("ResponsableVols is valid");
 	}
-	@PostMapping("/registerNewPassenger")
+	@PostMapping("/Passenger")
 	public ResponseEntity<String> AddPassenger(@Valid @RequestBody Passenger passenger) {
 		passengerService.save(passenger);
 		return ResponseEntity.ok("Passenger is valid");
 	}
 	//DELETE
-    @DeleteMapping("/deleteNewAdmin/{roll}")
-    public ResponseEntity<String> deleteAdmin(@PathVariable long roll) {
-        adminService.delete(roll);
+    @DeleteMapping("/Admin/{id}")
+    public ResponseEntity<String> deleteAdmin(@PathVariable long id) {
+        adminService.delete(id);
         return ResponseEntity.ok("Admin is deleted");
     }
-    @DeleteMapping("/deleteNewResponsableBillets/{roll}")
-    public ResponseEntity<String> deleteResponsableBillets(@PathVariable long roll) {
-        responsableBilletsService.delete(roll);
+    @DeleteMapping("/ResponsableBillets/{id}")
+    public ResponseEntity<String> deleteResponsableBillets(@PathVariable long id) {
+        responsableBilletsService.delete(id);
         return ResponseEntity.ok("ResponsableBillets is deleted");
     }
-    @DeleteMapping("/deleteNewResponsableVols/{roll}")
-    public ResponseEntity<String> deleteResponsableVols(@PathVariable long roll) {
-    	responsableVolsService.delete(roll);
+    @DeleteMapping("/ResponsableVols/{id}")
+    public ResponseEntity<String> deleteResponsableVols(@PathVariable long id) {
+    	responsableVolsService.delete(id);
         return ResponseEntity.ok("ResponsableVols is deleted");
     }
-    @DeleteMapping("/deleteNewPassenger/{roll}")
-    public ResponseEntity<String> deletePassenger(@PathVariable long roll) {
-    	passengerService.delete(roll);
+    @DeleteMapping("/Passenger/{id}")
+    public ResponseEntity<String> deletePassenger(@PathVariable long id) {
+    	passengerService.delete(id);
         return ResponseEntity.ok("Passenger is deleted");
     }
     //UPDATE
-	@PostMapping("/updateNewAdmin/{roll}")
-	public ResponseEntity<String> updateAdmin(@RequestBody Admin admin,@PathVariable long roll) {
-		adminService.update(admin, roll);
+	@PostMapping("/Admin/{id}")
+	public ResponseEntity<String> updateAdmin(@RequestBody Admin admin,@PathVariable long id) {
+		adminService.update(admin, id);
 		return ResponseEntity.ok("Admin is updated");
 	}  
-	@PostMapping("/updateNewResponsableBillets/{roll}")
-	public ResponseEntity<String> updateResponsableBillets(@RequestBody ResponsableBillets responsableBillets,@PathVariable long roll) {
-		responsableBilletsService.update(responsableBillets, roll);
+	@PostMapping("/ResponsableBillets/{id}")
+	public ResponseEntity<String> updateResponsableBillets(@RequestBody ResponsableBillets responsableBillets,@PathVariable long id) {
+		responsableBilletsService.update(responsableBillets, id);
 		return ResponseEntity.ok("ResponsableBillets is updated");
 	}
-	@PostMapping("/updateNewResponsableVols/{roll}")
-	public ResponseEntity<String> updateResponsableVols(@RequestBody ResponsableVols responsableVols,@PathVariable long roll) {
-		responsableVolsService.update(responsableVols, roll);
+	@PostMapping("/ResponsableVols/{id}")
+	public ResponseEntity<String> updateResponsableVols(@RequestBody ResponsableVols responsableVols,@PathVariable long id) {
+		responsableVolsService.update(responsableVols, id);
 		return ResponseEntity.ok("ResponsableVols is updated");
 	}
-	@PostMapping("/updateNewPassenger/{roll}")
-	public ResponseEntity<String> updateUser(@RequestBody Passenger passenger,@PathVariable long roll) {
-		passengerService.update(passenger, roll);
+	@PostMapping("/Passenger/{id}")
+	public ResponseEntity<String> updateUser(@RequestBody Passenger passenger,@PathVariable long id) {
+		passengerService.update(passenger, id);
 		return ResponseEntity.ok("Passenger is updated");
 	}
 	//SHOW LIST
-	@GetMapping("/listAdmins")
+	@GetMapping("/Admin")
     public List<Admin> List() {
 		return adminService.getAll();
     }
-	@GetMapping("/listResponsableBillets")
+	@GetMapping("/ResponsableBillets")
     public List<ResponsableBillets> List1() {
 		return responsableBilletsService.getAll();
     }
-	@GetMapping("/listResponsableVols")
+	@GetMapping("/ResponsableVols")
     public List<ResponsableVols> List2() {
 		return responsableVolsService.getAll();
     }
-	@GetMapping("/listPassenger")
+	@GetMapping("/Passenger")
     public List<Passenger> List3() {
 		return passengerService.getAll();
     }
 	//SHOW LISTS
-    @GetMapping("/listAdmin/{roll}")
-    public ResponseEntity<Admin> getAdmin(@PathVariable long roll) {
-    	Admin admin = adminService.getById(roll);   
+    @GetMapping("/Admin/{id}")
+    public ResponseEntity<Admin> getAdmin(@PathVariable long id) {
+    	Admin admin = adminService.getById(id);   
     	 return ResponseEntity.ok(admin);
     }
-    @GetMapping("/listResponsableBillet/{roll}")
-    public ResponseEntity<ResponsableBillets> getResponsableBillet(@PathVariable long roll) {
-    	ResponsableBillets responsableBillets = responsableBilletsService.getById(roll);   
+    @GetMapping("/ResponsableBillets/{id}")
+    public ResponseEntity<ResponsableBillets> getResponsableBillet(@PathVariable long id) {
+    	ResponsableBillets responsableBillets = responsableBilletsService.getById(id);   
     	 return ResponseEntity.ok(responsableBillets);
     }
-    @GetMapping("/listResponsableVols/{roll}")
-    public ResponseEntity<ResponsableVols> getResponsableVols(@PathVariable long roll) {
-    	ResponsableVols responsableVols = responsableVolsService.getById(roll);   
+    @GetMapping("/ResponsableVols/{id}")
+    public ResponseEntity<ResponsableVols> getResponsableVols(@PathVariable long id) {
+    	ResponsableVols responsableVols = responsableVolsService.getById(id);   
     	 return ResponseEntity.ok(responsableVols);
     }
-    @GetMapping("/listPassenger/{roll}")
-    public ResponseEntity<Passenger> getPassenger(@PathVariable long roll) {
-    	Passenger passenger = passengerService.getById(roll);   
+    @GetMapping("/Passenger/{id}")
+    public ResponseEntity<Passenger> getPassenger(@PathVariable long id) {
+    	Passenger passenger = passengerService.getById(id);   
     	 return ResponseEntity.ok(passenger);
     } 
     //////////////
